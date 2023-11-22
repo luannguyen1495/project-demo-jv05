@@ -23,6 +23,7 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
     // https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto// https://mvnrepository.com/artifact/org.mindrot/jbcrypt
     implementation group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.18'

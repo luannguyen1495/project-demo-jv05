@@ -14,7 +14,7 @@
             </li>
             <li class="nav-item dropdown">
 
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span th:text="${ session.email != null ? session.email : 'Thằng nguoi'}"></span></a>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span th:text="${ session.user != null ? session.user.email : 'Thằng nguoi'}"></span></a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                     <a class="dropdown-item" href="/login">Login</a>
                     <a class="dropdown-item" href="#">Register</a>
