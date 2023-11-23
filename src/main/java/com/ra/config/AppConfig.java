@@ -64,4 +64,9 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
                 .addResourceLocations("classpath:assets/css/","classpath:assets/fonts/","classpath:assets/images/",
                         "classpath:assets/js/");
     }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/admin/**");
+    }
 }

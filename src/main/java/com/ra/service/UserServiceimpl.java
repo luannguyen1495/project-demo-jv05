@@ -22,4 +22,12 @@ public class UserServiceimpl implements  UserService {
         user.setPassword(passwordHash);
         return  userDAO.save(user);
     }
+
+    public User logon(String email, String password) {
+        User user = login(email,password);
+        if(user.getRole() == 1){
+            return user;
+        }
+        return null;
+    }
 }

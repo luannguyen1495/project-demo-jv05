@@ -35,8 +35,8 @@ public class UserController {
                             @RequestParam(required = false, name = "checked") Boolean isCheck,
                             HttpServletResponse response,HttpServletRequest request){
         User userLogin = userService.login(user.getEmail(),user.getPassword());
-    // fix tieeps nhe
-        if(isCheck){
+
+        if(isCheck !=null){
             Cookie cookieEmail = new Cookie("email",user.getEmail());
             cookieEmail.setMaxAge(24*60*60);
             response.addCookie(cookieEmail);
@@ -46,9 +46,11 @@ public class UserController {
             for (int i = 0; i < cookie.length ; i++) {
                 if(cookie[i].getName().equals("email")){
                     cookie[i].setMaxAge(0);
+                    response.addCookie(cookie[i]);
                     break;
                 }
             }
+
         }
         if(userLogin != null)
         {
