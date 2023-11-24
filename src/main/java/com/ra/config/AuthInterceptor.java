@@ -1,5 +1,6 @@
 package com.ra.config;
 
+import com.ra.dto.response.ResponseUserLoginDTO;
 import com.ra.model.entity.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -12,7 +13,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession httpSession = request.getSession();
 
-        User admin = (User) httpSession.getAttribute("admin");
+        ResponseUserLoginDTO admin =(ResponseUserLoginDTO) httpSession.getAttribute("admin");
 
         if(admin != null){
             return true;

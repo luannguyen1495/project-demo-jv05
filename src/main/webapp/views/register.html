@@ -17,22 +17,26 @@
       <form action="/register" method="post" th:object="${user}">
         <div class="form-group">
           <label for="">Email address</label>
-          <input th:field="*{email}" type="email" class="form-control" id="" aria-describedby="emailHelp">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input th:field="*{email}" type="text" class="form-control" th:classappend="${#fields.hasErrors('email')} ? 'border-danger' " aria-describedby="emailHelp">
+          <small class="form-text text-danger" th:errors="*{email}"></small>
         </div>
         <div class="form-group">
           <label for="">UerName</label>
           <input th:field="*{userName}" type="text" class="form-control" id="" aria-describedby="emailHelp">
-          <small id="" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <small  class="form-text text-danger" th:errors="*{userName}"></small>
         </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Phone</label>
+          <input type="password" th:field="*{phone}" class="form-control" >
+          <small class="form-text text-danger" th:errors="*{phone}"></small>
+        </div>
+
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1">
+          <small class="form-text text-danger" th:errors="*{password}"></small>
         </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
+
         <button type="submit" class="btn btn-primary">Register</button>
       </form>
     </div>

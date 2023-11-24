@@ -1,32 +1,34 @@
-package com.ra.model.entity;
+package com.ra.dto.request;
 
+import com.ra.dto.validate.PhoneNumberConstraint;
 
-public class User {
-    private Integer id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class UserRegisterDTO {
+
+    @NotEmpty(message = "Tên khong duoc rong")
     private String userName;
+    @NotEmpty(message = "khong duoc rong")
+    @Email(message = "Sai dinh dạng email")
     private String email;
+    @Size(min = 3,max = 16,message = "Sai cmnr")
     private String password;
+    @PhoneNumberConstraint(message = "Sai ")
     private String phone;
     private Byte role = 0;
 
-    public User() {
+    public UserRegisterDTO() {
     }
 
-    public User(Integer id, String userName, String email, String password, String phone, Byte role) {
-        this.id = id;
+    public UserRegisterDTO(String userName, String email, String password, String phone, Byte role) {
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.role = role;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getUserName() {

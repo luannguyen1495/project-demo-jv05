@@ -1,22 +1,19 @@
-package com.ra.model.entity;
+package com.ra.dto.response;
 
-
-public class User {
+public class ResponseUserLoginDTO {
     private Integer id;
     private String userName;
     private String email;
-    private String password;
     private String phone;
     private Byte role = 0;
 
-    public User() {
+    public ResponseUserLoginDTO() {
     }
 
-    public User(Integer id, String userName, String email, String password, String phone, Byte role) {
+    public ResponseUserLoginDTO(Integer id, String userName, String email, String phone, Byte role) {
         this.id = id;
         this.userName = userName;
         this.email = email;
-        this.password = password;
         this.phone = phone;
         this.role = role;
     }
@@ -43,14 +40,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPhone() {
